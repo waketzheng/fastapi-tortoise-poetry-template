@@ -6,6 +6,7 @@ import uvicorn
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import RegisterTortoise
 
+from routers.users import router as users_router
 from settings import DB_CONFIG
 
 
@@ -16,6 +17,7 @@ async def lifespan(application) -> AsyncGenerator:
 
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(users_router, prefix="/users")
 if os.getenv("FAST_CDN"):
     import fastapi_cdn_host
 
