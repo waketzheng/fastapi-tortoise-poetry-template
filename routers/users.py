@@ -1,31 +1,31 @@
 from fastapi import APIRouter, HTTPException
 
 from models.users import User
-from schemas import Status, User_Pydantic, UserIn_Pydantic
+from schemas import Status, UserInPydantic, UserPydantic
 
 router = APIRouter()
 
 
-@router.get("/", response_model=list[User_Pydantic], tags=["users"])
+@router.get("/", response_model=list[UserPydantic], tags=["users"])
 async def user_list():
-    return await User_Pydantic.from_queryset(User.all())
+    return await UserPydantic.from_queryset(User.all())
 
 
-@router.post("/", response_model=User_Pydantic, tags=["users"])
-async def create_user(user: UserIn_Pydantic):
+@router.post("/", response_model=UserPydantic, tags=["users"])
+async def create_user(user: UserInPydantic):
     user_obj = await User.create(**user.model_dump(exclude_unset=True))
-    return await User_Pydantic.from_tortoise_orm(user_obj)
+    return await UserPydantic.from_tortoise_orm(user_obj)
 
 
-@router.get("/user/{user_id}", response_model=User_Pydantic)
+@router.get("/user/{user_id}", response_model=UserPydantic)
 async def get_user(user_id: int):
-    return await User_Pydantic.from_queryset_single(User.get(id=user_id))
+    return await UserPydantic.from_queryset_single(User.get(id=user_id))
 
 
-@router.put("/user/{user_id}", response_model=User_Pydantic)
-async def update_user(user_id: int, user: UserIn_Pydantic):
+@router.put("/user/{user_id}", response_model=UserPydantic)
+async def update_user(user_id: int, user: UserInPydantic):
     await User.filter(id=user_id).update(**user.model_dump(exclude_unset=True))
-    return await User_Pydantic.from_queryset_single(User.get(id=user_id))
+    return await UserPydantic.from_queryset_single(User.get(id=user_id))
 
 
 @router.delete("/user/{user_id}", response_model=Status)

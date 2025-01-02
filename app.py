@@ -1,8 +1,10 @@
+#!/usr/bin/env python
 import os
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
 import uvicorn
+from asynctor import AsyncRedis
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import RegisterTortoise
 
@@ -12,7 +14,11 @@ from settings import DB_CONFIG
 
 @asynccontextmanager
 async def lifespan(application) -> AsyncGenerator:
-    async with RegisterTortoise(application, **DB_CONFIG):
+    generate_schemas = ":memory:" in DB_CONFIG["db_url"]
+    async with (
+        RegisterTortoise(application, generate_schemas=generate_schemas, **DB_CONFIG),
+        AsyncRedis(application),
+    ):
         yield
 
 

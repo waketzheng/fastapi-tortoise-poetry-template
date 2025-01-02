@@ -12,10 +12,12 @@ tortoise-orm = "^0.23.0"
 aerich = "^0.8.1"
 tortoise-database-url = "^0.1.4"
 fastapi-cdn-host = "^0.8.3"
+asynctor = "^0.6.8"
 
 [tool.poetry.group.dev.dependencies]
 tomli-w = "^1.1.0"
 fast-dev-cli = "^0.11.5"
+asgi-lifespan = "^2.1.0"
 
 [tool.aerich]
 tortoise_orm = "settings.TORTOISE_ORM"

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from typing import TypedDict
 
@@ -18,10 +19,10 @@ def load_models(strict=False) -> list[str]:
             for p in files
             if "tortoise" in (s := p.read_text("utf8")) and "fields" in s
         )
-    return [p.stem for p in files]
+    return [f"{model_dir.name}.{p.stem}" for p in files]
 
 
-DB_URL = generate(engine=EngineEnum.sqlite)
+DB_URL = os.getenv("DB_URL") or generate(engine=EngineEnum.sqlite)
 # DB_URL = generate("db_name", engine=EngineEnum.postgres)
 DB_CONFIG: DbConfigDict = {
     "db_url": DB_URL,

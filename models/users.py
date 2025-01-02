@@ -12,3 +12,4 @@ class User(Model):
     group: fields.ForeignKeyRelation[Group] = fields.ForeignKeyField(
         "models.Group", on_delete=fields.OnDelete.CASCADE, related_name="users"
     )
+    group_id: int

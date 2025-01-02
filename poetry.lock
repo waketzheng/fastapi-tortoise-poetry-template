@@ -74,6 +74,31 @@ test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypo
 trio = ["trio (>=0.26.1)"]
 
 [[package]]
+name = "asgi-lifespan"
+version = "2.1.0"
+description = "Programmatic startup/shutdown of ASGI apps."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "asgi-lifespan-2.1.0.tar.gz", hash = "sha256:5e2effaf0bfe39829cf2d64e7ecc47c7d86d676a6599f7afba378c31f5e3a308"},
+    {file = "asgi_lifespan-2.1.0-py3-none-any.whl", hash = "sha256:ed840706680e28428c01e14afb3875d7d76d3206f3d5b2f2294e059b5c23804f"},
+]
+
+[package.dependencies]
+sniffio = "*"
+
+[[package]]
+name = "async-timeout"
+version = "5.0.1"
+description = "Timeout context manager for asyncio programs"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c"},
+    {file = "async_timeout-5.0.1.tar.gz", hash = "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3"},
+]
+
+[[package]]
 name = "asyncclick"
 version = "8.1.7.2"
 description = "Composable command line interface toolkit, async version"
@@ -102,6 +127,24 @@ files = [
 [package.dependencies]
 anyio = ">=3.4.0,<5.0"
 typing_extensions = {version = ">=4.8.0", markers = "python_version < \"3.10\""}
+
+[[package]]
+name = "asynctor"
+version = "0.6.8"
+description = "Async functions to compare with anyio and asyncio, and toolkit to read excel with async/await."
+optional = false
+python-versions = ">=3.9,<4.0"
+files = [
+    {file = "asynctor-0.6.8-py3-none-any.whl", hash = "sha256:9ca1a395a5e4035e5cbbc7a3f1f0613343c8bb532ebee7c83f10103cc8f92f57"},
+    {file = "asynctor-0.6.8.tar.gz", hash = "sha256:79cc73880034e568584d031b85ce76cc7429b9f3c0554c53f6c64492f71d1c73"},
+]
+
+[package.dependencies]
+anyio = ">=3.7.1"
+redis = ">=5.0.0"
+
+[package.extras]
+xls = ["openpyxl (>=3.1.0)", "pandas (>=2.2.0)"]
 
 [[package]]
 name = "bumpversion2"
@@ -1035,6 +1078,24 @@ files = [
 ]
 
 [[package]]
+name = "redis"
+version = "5.2.1"
+description = "Python client for Redis database and key-value store"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "redis-5.2.1-py3-none-any.whl", hash = "sha256:ee7e1056b9aea0f04c6c2ed59452947f34c4940ee025f5dd83e6a6418b6989e4"},
+    {file = "redis-5.2.1.tar.gz", hash = "sha256:16f2e22dff21d5125e8481515e386711a34cbec50f0e44413dd7d9c060a54e0f"},
+]
+
+[package.dependencies]
+async-timeout = {version = ">=4.0.3", markers = "python_full_version < \"3.11.3\""}
+
+[package.extras]
+hiredis = ["hiredis (>=3.0.0)"]
+ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==23.2.1)", "requests (>=2.31.0)"]
+
+[[package]]
 name = "rich"
 version = "13.9.4"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
@@ -1493,4 +1554,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "2f9a886f0ab00d94209e35c8ea652b977904fa525e209124202ad34ceb7fbeb2"
+content-hash = "a868b5cf7a0feced607087d7f4b8438071dccdf1764d5ed62d5e87a86f5d4add"
