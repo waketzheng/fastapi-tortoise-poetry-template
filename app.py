@@ -23,12 +23,12 @@ async def lifespan(application) -> AsyncGenerator:
 
 
 app = FastAPI(lifespan=lifespan)
-app.include_router(users_router, prefix="/users")
+app.include_router(users_router, prefix="/users", tags=["users"])
 if os.getenv("FAST_CDN"):
     import fastapi_cdn_host
 
     fastapi_cdn_host.patch_docs(app)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: nocoverage
     uvicorn.run("__main__:app", reload=True)

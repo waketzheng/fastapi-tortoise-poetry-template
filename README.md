@@ -8,8 +8,10 @@ Template for python backend project using FastAPI+TortoiseORM+poetry+aerich
 ## Quickstart
 
 ```bash
+poetry shell
 poetry install
 # For MySQL: poetry install -E mysql
+# For PostgreSQL: poetry install -E postgres
 aerich init-db
 python app.py
 ```
