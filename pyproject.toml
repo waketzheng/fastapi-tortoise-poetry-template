@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = [{ name="Waket Zheng", email="waketzheng@gmail.com" }]
 readme = "README.md"
-package-mode = false
 requires-python = ">=3.9,<4.0"
 dependencies = [
     "fastapi[standard]>=0.115.6",
@@ -21,6 +20,7 @@ postgres = ["asyncpg>=0.30.0"]
 
 [tool.poetry]
 requires-poetry = ">=2.0"
+package-mode = false
 
 [tool.poetry.group.dev.dependencies]
 tomli-w = "^1.1.0"
