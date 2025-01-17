@@ -25,6 +25,7 @@ async def lifespan(application) -> AsyncGenerator:
 app = FastAPI(lifespan=lifespan)
 app.include_router(users_router, prefix="/users", tags=["users"])
 if os.getenv("FAST_CDN"):
+    # Use faster CDN host for docs page assets instead of 'cdn.jsdelivr.net'
     import fastapi_cdn_host
 
     fastapi_cdn_host.patch_docs(app)
