@@ -2,6 +2,7 @@
 ![Python Versions](https://img.shields.io/pypi/pyversions/asynctor)
 ![Mypy coverage](https://img.shields.io/badge/mypy-100%25-green.svg)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![CI](https://github.com/waketzheng/fastapi-tortoise-poetry-template/workflows/ci/badge.svg)](https://github.com/waketzheng/fastapi-tortoise-poetry-template/actions?query=workflow:ci)
 
 Template for python backend project using FastAPI+TortoiseORM+poetry+aerich
 
