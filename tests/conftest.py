@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 
 import pytest
-from asynctor.utils import AsyncTestClient
-from fastapi_cdn_host.utils import TestClientType
+from asynctor import AsyncClientGenerator, AsyncTestClient
 from tortoise.contrib.test import MEMORY_SQLITE
 
 os.environ["DB_URL"] = MEMORY_SQLITE
@@ -23,6 +22,6 @@ def anyio_backend() -> str:
 
 
 @pytest.fixture(scope="module")
-async def client() -> TestClientType:
+async def client() -> AsyncClientGenerator:
     async with AsyncTestClient(app) as c:
         yield c

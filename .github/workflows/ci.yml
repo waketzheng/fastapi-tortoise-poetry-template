@@ -43,8 +43,6 @@ jobs:
         run: poetry install -E mysql -E postgres
       - name: Check code style and Type Hint
         run: fast check
-      - name: build
-        run: poetry build
       - name: Test with pytest
         run: fast test
       - name: Upload Coverage
