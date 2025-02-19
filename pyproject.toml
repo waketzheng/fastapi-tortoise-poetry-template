@@ -4,14 +4,14 @@ version = "0.1.0"
 description = ""
 authors = [{ name="Waket Zheng", email="waketzheng@gmail.com" }]
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.9"
 dependencies = [
-    "fastapi[standard]>=0.115.6",
-    "tortoise-orm>=0.23.0",
-    "aerich>=0.8.1",
-    "tortoise-database-url>=0.1.4",
-    "fastapi-cdn-host>=0.8.3",
-    "asynctor>=0.6.9",
+    "fastapi[standard] (>=0.115.8,<0.116.0)",
+    "tortoise-orm (>=0.24.0,<0.25.0)",
+    "aerich (>=0.8.1,<0.9.0)",
+    "tortoise-database-url (>=0.1.4,<0.2.0)",
+    "fastapi-cdn-host (>=0.8.4,<0.9.0)",
+    "asynctor (>=0.6.9,<0.7.0)",
 ]
 
 [project.optional-dependencies]
@@ -22,9 +22,12 @@ postgres = ["asyncpg>=0.30.0"]
 requires-poetry = ">=2.0"
 package-mode = false
 
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+
 [tool.poetry.group.dev.dependencies]
-tomli-w = "^1.1.0"
-fast-dev-cli = "^0.11.5"
+tomli-w = "^1.2.0"
+fast-dev-cli = "^0.11.7"
 asgi-lifespan = "^2.1.0"
 
 [tool.aerich]

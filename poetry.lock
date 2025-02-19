@@ -143,22 +143,6 @@ anyio = ">=4.0,<5.0"
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
-name = "asyncer"
-version = "0.0.8"
-description = "Asyncer, async and await, focused on developer experience."
-optional = false
-python-versions = ">=3.8"
-groups = ["main"]
-files = [
-    {file = "asyncer-0.0.8-py3-none-any.whl", hash = "sha256:5920d48fc99c8f8f0f1576e1882f5022885589c5fcbc46ce4224ec3e53776eeb"},
-    {file = "asyncer-0.0.8.tar.gz", hash = "sha256:a589d980f57e20efb07ed91d0dbe67f1d2fd343e7142c66d3a099f05c620739c"},
-]
-
-[package.dependencies]
-anyio = ">=3.4.0,<5.0"
-typing_extensions = {version = ">=4.8.0", markers = "python_version < \"3.10\""}
-
-[[package]]
 name = "asyncpg"
 version = "0.30.0"
 description = "An asyncio PostgreSQL driver"
@@ -443,6 +427,22 @@ files = [
 dev = ["coverage", "pytest (>=7.4.4)"]
 
 [[package]]
+name = "eval-type-backport"
+version = "0.2.2"
+description = "Like `typing._eval_type`, but lets older Python versions use newer typing features."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+markers = "python_version < \"3.10\""
+files = [
+    {file = "eval_type_backport-0.2.2-py3-none-any.whl", hash = "sha256:cb6ad7c393517f476f96d456d0412ea80f0a8cf96f6892834cd9340149111b0a"},
+    {file = "eval_type_backport-0.2.2.tar.gz", hash = "sha256:f0576b4cf01ebb5bd358d02314d31846af5e07678387486e2c798af0e7d849c1"},
+]
+
+[package.extras]
+tests = ["pytest"]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -460,14 +460,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "fast-dev-cli"
-version = "0.11.6"
+version = "0.11.7"
 description = "Python project development tool."
 optional = false
 python-versions = "<4,>=3.9"
 groups = ["dev"]
 files = [
-    {file = "fast_dev_cli-0.11.6-py3-none-any.whl", hash = "sha256:26031a14859cd688ef4dcefef7559b6131172b25c7f590308e47540c2603d1b7"},
-    {file = "fast_dev_cli-0.11.6.tar.gz", hash = "sha256:4794e761d204871252acb5370b5e022a114f162bafe5b758c2ae8cfaff3d92cb"},
+    {file = "fast_dev_cli-0.11.7-py3-none-any.whl", hash = "sha256:6ea86671bca0402ecd7b8c06ebfaef76c7b5d7e5b55f4f43a8be669ea0737e1a"},
+    {file = "fast_dev_cli-0.11.7.tar.gz", hash = "sha256:d6ba7f6c926c2795c9b20d9048a9298561acc0aa2ab37d24abfe0db6524c2122"},
 ]
 
 [package.dependencies]
@@ -486,50 +486,50 @@ include-optional-dependencies = ["all"]
 
 [[package]]
 name = "fastapi"
-version = "0.115.6"
+version = "0.115.8"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "fastapi-0.115.6-py3-none-any.whl", hash = "sha256:e9240b29e36fa8f4bb7290316988e90c381e5092e0cbe84e7818cc3713bcf305"},
-    {file = "fastapi-0.115.6.tar.gz", hash = "sha256:9ec46f7addc14ea472958a96aae5b5de65f39721a46aaf5705c480d9a8b76654"},
+    {file = "fastapi-0.115.8-py3-none-any.whl", hash = "sha256:753a96dd7e036b34eeef8babdfcfe3f28ff79648f86551eb36bfc1b0bf4a8cbf"},
+    {file = "fastapi-0.115.8.tar.gz", hash = "sha256:0ce9111231720190473e222cdf0f07f7206ad7e53ea02beb1d2dc36e2f0741e9"},
 ]
 
 [package.dependencies]
 email-validator = {version = ">=2.0.0", optional = true, markers = "extra == \"standard\""}
 fastapi-cli = {version = ">=0.0.5", extras = ["standard"], optional = true, markers = "extra == \"standard\""}
 httpx = {version = ">=0.23.0", optional = true, markers = "extra == \"standard\""}
-jinja2 = {version = ">=2.11.2", optional = true, markers = "extra == \"standard\""}
+jinja2 = {version = ">=3.1.5", optional = true, markers = "extra == \"standard\""}
 pydantic = ">=1.7.4,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.1.0 || >2.1.0,<3.0.0"
-python-multipart = {version = ">=0.0.7", optional = true, markers = "extra == \"standard\""}
-starlette = ">=0.40.0,<0.42.0"
+python-multipart = {version = ">=0.0.18", optional = true, markers = "extra == \"standard\""}
+starlette = ">=0.40.0,<0.46.0"
 typing-extensions = ">=4.8.0"
 uvicorn = {version = ">=0.12.0", extras = ["standard"], optional = true, markers = "extra == \"standard\""}
 
 [package.extras]
-all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.7)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
-standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=2.11.2)", "python-multipart (>=0.0.7)", "uvicorn[standard] (>=0.12.0)"]
+all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=3.1.5)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.18)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
+standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=3.1.5)", "python-multipart (>=0.0.18)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
 name = "fastapi-cdn-host"
-version = "0.8.3"
+version = "0.8.4"
 description = "Auto choose the fastest cdn host for fastapi project docs."
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "fastapi_cdn_host-0.8.3-py3-none-any.whl", hash = "sha256:5d20b40a7996a2e401ec9295176521c9882069265dc82b948023bf028713eedb"},
-    {file = "fastapi_cdn_host-0.8.3.tar.gz", hash = "sha256:e6bbea3dd1b07ddf2604f0557a369db188f081058f5acfb3a26f3426b4a9b66e"},
+    {file = "fastapi_cdn_host-0.8.4-py3-none-any.whl", hash = "sha256:4f2668a0726bfaa20feafa93bc174249265a44df51d3995b9bc147c943013010"},
+    {file = "fastapi_cdn_host-0.8.4.tar.gz", hash = "sha256:8e955d1974d861ba13586b2ab01af4b6c040e41593b29f14d07efa980453904b"},
 ]
 
 [package.dependencies]
-asyncer = ">=0.0.8,<0.0.9"
-fastapi = ">=0.100"
-httpx = ">=0.23"
+eval-type-backport = {version = ">=0.2.2,<0.3.0", markers = "python_version < \"3.10\""}
+fastapi = ">=0.100.0,<1.0.0"
+httpx = ">=0.23.0,<1.0.0"
 
 [package.extras]
-all = ["fastapi-cli (>=0.0.5,<0.0.6)"]
+all = ["fastapi-cli (>=0.0.7)"]
 
 [[package]]
 name = "fastapi-cli"
@@ -1099,14 +1099,14 @@ rsa = ["cryptography"]
 
 [[package]]
 name = "pypika-tortoise"
-version = "0.3.2"
+version = "0.5.0"
 description = "Forked from pypika and streamline just for tortoise-orm"
 optional = false
 python-versions = ">=3.8,<4.0"
 groups = ["main"]
 files = [
-    {file = "pypika_tortoise-0.3.2-py3-none-any.whl", hash = "sha256:c5c52bc4473fe6f3db36cf659340750246ec5dd0f980d04ae7811430e299c3a2"},
-    {file = "pypika_tortoise-0.3.2.tar.gz", hash = "sha256:f5d508e2ef00255e52ec6ac79ef889e10dbab328f218c55cd134c4d02ff9f6f4"},
+    {file = "pypika_tortoise-0.5.0-py3-none-any.whl", hash = "sha256:dbdc47eb52ce17407b05ce9f8560ce93b856d7b28beb01971d956b017846691f"},
+    {file = "pypika_tortoise-0.5.0.tar.gz", hash = "sha256:ed0f56761868dc222c03e477578638590b972280b03c7c45cd93345b18b61f58"},
 ]
 
 [[package]]
@@ -1406,14 +1406,14 @@ files = [
 
 [[package]]
 name = "tomli-w"
-version = "1.1.0"
+version = "1.2.0"
 description = "A lil' TOML writer"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "tomli_w-1.1.0-py3-none-any.whl", hash = "sha256:1403179c78193e3184bfaade390ddbd071cba48a32a2e62ba11aae47490c63f7"},
-    {file = "tomli_w-1.1.0.tar.gz", hash = "sha256:49e847a3a304d516a169a601184932ef0f6b61623fe680f836a2aa7128ed0d33"},
+    {file = "tomli_w-1.2.0-py3-none-any.whl", hash = "sha256:188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90"},
+    {file = "tomli_w-1.2.0.tar.gz", hash = "sha256:2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021"},
 ]
 
 [[package]]
@@ -1430,20 +1430,20 @@ files = [
 
 [[package]]
 name = "tortoise-orm"
-version = "0.23.0"
+version = "0.24.0"
 description = "Easy async ORM for python, built with relations in mind"
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.9,<4.0"
 groups = ["main"]
 files = [
-    {file = "tortoise_orm-0.23.0-py3-none-any.whl", hash = "sha256:deaabed1619ea8aab6213508dff025571a701b7f34ee534473d7bb7661aa9f4f"},
-    {file = "tortoise_orm-0.23.0.tar.gz", hash = "sha256:f25d431ef4fb521a84edad582f4b9c53dccc5abf6cfbc6f228cbece5a13952fa"},
+    {file = "tortoise_orm-0.24.0-py3-none-any.whl", hash = "sha256:ee3b72b226767293b24c5c4906ae5f027d7cc84496cd503352c918564b4fd687"},
+    {file = "tortoise_orm-0.24.0.tar.gz", hash = "sha256:ae0704a93ea27931724fc899e57268c8081afce3b32b110b00037ec206553e7d"},
 ]
 
 [package.dependencies]
 aiosqlite = ">=0.16.0,<0.21.0"
 iso8601 = ">=2.1.0,<3.0.0"
-pypika-tortoise = ">=0.3.2,<0.4.0"
+pypika-tortoise = ">=0.5.0,<0.6.0"
 pytz = "*"
 
 [package.extras]
@@ -1734,4 +1734,4 @@ postgres = ["asyncpg"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<4.0"
-content-hash = "35229d38132c9343147bc7765e3ab2b878b5d4312c526baad83e30a4b02a61c9"
+content-hash = "246d897b420f9375626a513be628e9c4ab6becd880a4b83e3ac93a9ded477b4d"
